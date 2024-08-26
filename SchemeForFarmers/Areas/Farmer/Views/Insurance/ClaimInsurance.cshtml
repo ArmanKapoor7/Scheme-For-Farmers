@@ -1,0 +1,113 @@
+﻿@model SchemeForFarmers.Areas.Farmer.Models.ClaimInsurance
+
+@{
+    ViewData["Title"] = "ClaimInsurance";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card col-sm-4 mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">Enter Your Details</h4>
+                <form asp-action="ClaimInsurance" id="form">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="InsuranceId" class="control-label" >Policy No</label>
+                        <input asp-for="InsuranceId" class="form-control text-center" style="margin-top:5px" placeholder="Enter Policy No." />
+                        <span asp-validation-for="InsuranceId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="InsuranceCompany" class="control-label" style="margin-top:10px">Insurance Company</label>
+                        <select asp-for="InsuranceCompany" class="form-control text-center" style="margin-top:5px" >
+                            <option value="">Select Insurance Company</option>
+                            <option value="Agriculture Insurance Company">Agriculture Insurance Company</option>
+                            <option value="IFFCO Tokio General Insurance Co. Ltd.">IFFCO Tokio General Insurance Co. Ltd.</option>
+                            <option value="Reliance General Insurance Co. Ltd.">Reliance General Insurance Co. Ltd.</option>
+                        </select>
+                        <span asp-validation-for="InsuranceCompany" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TotalSumInsured" class="control-label" style="margin-top:10px">Sum Insured</label>
+                        <input asp-for="TotalSumInsured" class="form-control text-center" style="margin-top:5px" placeholder="Enter Sum" />
+                        <span asp-validation-for="TotalSumInsured" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FarmerName" class="control-label" style="margin-top:10px">Name of Insuree</label>
+                        <input asp-for="FarmerName" class="form-control text-center" style="margin-top:5px" placeholder="Enter Name" />
+                        <span asp-validation-for="FarmerName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CauseOfLoss" class="control-label" style="margin-top:10px">Cause of Loss</label>
+                        <select id="cause" asp-for="CauseOfLoss" class="form-control text-center" style="margin-top:5px" >
+                            <option value="">Select Cause of Loss</option>
+                            <option value="Yield Losses">Yield Losses</option>
+                            <option value="Prevented Sowing">Prevented Sowing</option>
+                            <option value="Post-Harvest Losses">Post-Harvest Losses</option>
+                            <option value="Localised Calamities">Localised Calamities</option>
+                            <option value="Others">Others</option>
+                        </select>
+                        <span asp-validation-for="CauseOfLoss" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" id="others">
+                        <label class="control-label" style="margin-top:10px">Cause of Loss*(Others)</label>
+                        <input type="text" name="otherReason" id="otherReason" class="text-center" style="margin-top:5px" />
+                        <span asp-validation-for="CauseOfLoss" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DateOfLoss" class="control-label" style="margin-top:10px">Date of Loss</label>
+                        <input type="date" asp-for="DateOfLoss" class="form-control text-center" style="margin-top:5px" />
+                        <span asp-validation-for="DateOfLoss" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Submit" class="btn btn-primary" style="margin-top:20px" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<link href="~/css/StyleSheet.css" rel="stylesheet" type="text/css">
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#others").hide();
+
+    });
+
+    $("#cause").change(function () {
+        var selected = $(this).val();
+        if (selected == "Others") {
+            $("#others").show();
+        }
+        else {
+            $("#others").hide();
+        }
+    });
+
+
+    $("#form").submit(function (e) {
+        // e.preventDefault();
+    }).validate({
+        rules: {
+            otherReason: {
+                required: true
+            }
+        }
+
+    });
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

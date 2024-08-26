@@ -1,0 +1,136 @@
+﻿@model SchemeForFarmers.Models.LogInView
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor contextAccessor
+<head>
+    <style>
+        body {
+            background-image: url(/Images/bg1.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        .card1 {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .card2 {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+
+@{
+    ViewData["Title"] = "Login";
+}
+<div class="box">
+    <div class="row">
+        <div class="card1 col-sm-6 mx-auto my-5 shadow p-3 mb-5 rounded">
+            <div class="card-body">
+                <h4 class="card-title" style="font-weight:bold; font-size:25px">Scheme For Farmers</h4>
+                <p class="card-text" style="font-size:20px">
+                    The Government of India provides various schemes for farmers, but due to lack of awareness and miscommunication, farmers are not able to avail these benefits. Hence, this application tries to integrate some of the schemes like Fasal Bima Yojna and Bidding of Crops scheme.<br />
+                    <br />In this application, an automated system is implemented which helps to reduce the burden on farmers. It also provides an online means to apply and claim insurance for their crops in case of loss due to various unforeseeable reasons.<br />
+                    <br />The bidding module will enable the farmer to place crops for auction and receive best price from auction which stabilizes the farmer’s income as well as eliminates the stress of physical sale of crops in the market.
+                </p>
+            </div>
+        </div>
+
+        <div class="card2 col-sm-4 mx-auto my-auto shadow p-3 rounded text-center" style="block-size:fit-content">
+            <div class="card-body">
+                <h4 class="card-title" style="margin-top:20px">Log In</h4>
+                <form asp-action="Login">
+                    @{
+                        if (contextAccessor.HttpContext.Session.GetInt32("Wrong") != null)
+                        {
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert" id="logoutalert">
+                                <strong>Email or Password is Wrong!</strong> Please try again.
+                                <button type="button" id="btn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                        if (contextAccessor.HttpContext.Session.GetInt32("Reset") != null)
+                        {
+                            <div class="alert alert-success alert-dismissible fade show" role="alert" id="logoutalert">
+                                <strong>Password Is Changed.</strong>
+                                <button type="button" id="btn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                        if (contextAccessor.HttpContext.Session.GetInt32("NewUser") != null)
+                        {
+                            <div class="alert alert-success alert-dismissible fade show" role="alert" id="logoutalert">
+                                <strong>User Registered Successfully!</strong>  Please Login to Continue.
+                                <button type="button" id="btn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                        if (contextAccessor.HttpContext.Session.GetInt32("LogOut") != null)
+                        {
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert" id="logoutalert">
+                                <strong>You have been Logged out!</strong> Please Sign In again.
+                                <button type="button" id="btn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+
+                        if (ViewBag.notVerified != null)
+                        {
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Your account request has not been verified yet!</strong> You will receive an email upon verification.
+                                <button type="button" id="btn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        }
+                    }
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label"></label>
+                        <input asp-for="Email" class="form-control text-center" placeholder="Enter Email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group" style="margin-top:20px">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control text-center" placeholder="Enter Password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" style="margin-top:20px" value="LogIn" class="btn btn-primary" />
+                    </div>
+                </form>
+                <div style="margin-bottom:20px">
+                    <a asp-action="ForgotPassword" style="margin-top:30px" class="card-link" asp-controller="Home">Forgot Password?</a>
+
+                    <p style="margin-top:10px">New User? Register Here</p>
+                    <a asp-action="FarmerRegistration" class="card-link">Farmer</a>
+                    <a asp-action="BidderRegistration" class="card-link">Bidder</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        history.pushState(null, null, window.location.href);
+        history.back();
+        window.onpopstate = () => history.forward();
+    });
+
+    $("#btn").click(function () {
+        $.ajax({
+            url: '@Url.Action("removeSession")',
+            success: function () {
+                console.log("success")
+            },
+            error: function () {
+                console.log("failure")
+            }
+            //Your code for AJAX Ends
+        });
+    });
+
+
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

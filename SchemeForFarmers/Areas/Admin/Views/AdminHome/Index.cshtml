@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <style>
+        .card {
+            transition: box-shadow 0.3s ease;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: scale(1.1);
+            }
+    </style>
+</head>
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card col-sm-3 mx-auto my-5 shadow p-3 mb-5  rounded text-center card">
+            <div class="card-body">
+                <h4 class="card-title">User Appproval Requests</h4>
+                <a asp-action="UserValidation" class="btn btn-primary stretched-link">See Requests</a>
+            </div>
+        </div>
+        <div class="card col-sm-3 mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">Crops For Auction Requests</h4>
+                <a asp-action="CropsAuctionValidation" class="btn btn-primary stretched-link">See Requests</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card col-sm-3 mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">New Insurance Requests</h4>
+                <a asp-action="InsuranceValidation" class="btn btn-primary stretched-link">See Requests</a>
+            </div>
+        </div>
+        <div class="card col-sm-3 mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">Insurance Claim Requests</h4>
+                <a asp-action="ClaimInsuranceValidation" class="btn btn-primary stretched-link">See Requests</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card col-sm-3 mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">MarketPlace</h4>
+                <a asp-action="AuctionRoom" class="btn btn-primary stretched-link">Auction Room</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        history.pushState(null, null, window.location.href);
+        history.back();
+        window.onpopstate = () => history.forward();
+    });
+</script>

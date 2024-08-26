@@ -1,0 +1,231 @@
+﻿@model SchemeForFarmers.Areas.Farmer.Models.CropInsuranceDetailViewModel
+
+@{
+    ViewData["Title"] = "ApplyPolicy";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">Enter Your Details</h4>
+                <form asp-action="ApplyPolicy" id="form">
+                    <div class="col-sm-3 mx-auto">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="@Model.insuranceDetail.Year" class="control-label">Year</label>
+                            <select asp-for="@Model.insuranceDetail.Year" style="margin-top:5px" name="year" class="form-control text-center" id="year">
+                                <option value="">Select Year</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                            </select>
+                            <span asp-validation-for="@Model.insuranceDetail.Year" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.insuranceDetail.CropType" style="margin-top:10px" class="control-label">Crop Type</label>
+                            <select asp-for="@Model.insuranceDetail.CropType" style="margin-top:5px" class="form-control text-center" name="cropTypeDropdown" id="cropTypeDropdown" asp-items="@(new SelectList(@Model.CropTypeList,"Value","Text"))"></select>
+                            <span asp-validation-for="@Model.insuranceDetail.CropType" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" style="margin-top:10px">Crop</label>
+                            <select class="form-control text-center" style="margin-top:5px" name="cropDropdown" id="cropDropdown">
+                                <option value="">Select Crop</option>
+                            </select>
+                            <span asp-validation-for="@Model.insuranceDetail.CropName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="@Model.insuranceDetail.Area" style="margin-top:10px" class="control-label">Area(in Hectares)</label>
+                            <input asp-for="@Model.insuranceDetail.Area" style="margin-top:5px" class="form-control text-center" name="area" id="area" placeholder="Enter Area in Hectares" />
+                            <span asp-validation-for="@Model.insuranceDetail.Area" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top:20px" id="calculateButton">Calculate</button>
+                        @* <input type="submit" value="Calculate" class="btn btn-primary" id="calculateButton" /> *@
+                        <br />
+                    </div>
+                    <div id="table">
+                        <hr />
+                        <h5 class="card-subtitle" style="margin-top:10px">Calculate Insurance</h5>
+                        <table class="table table-striped table-sm" style="margin-top:10px">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th class="col-sm-3"><label>Insurance Company</label></th>
+                                    <th class="col-sm-2"><label>Sum Insured(Per Hectare)</label></th>
+                                    <th class ="col-sm-2"><label>Share Premium(%)</label></th>
+                                    <th class="col-sm-2"><label>Premium Amount(Paid by Farmer)</label></th>
+                                    <th class ="col-sm-1"><label>Crop Name</label></th>
+                                    <th class ="col-sm-1"><label>Area</label></th>
+                                    <th class="col-sm-1"><label>Sum Insured</label></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="tableBody">
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="hidden" hidden>
+                    </div>
+                    <div class="form-group" id="submitButton">
+                        <button type="button" class="btn btn-primary" id="submitButton">Apply</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<link href="~/css/StyleSheet.css" rel="stylesheet" type="text/css">
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#table").hide();
+        $("#submitButton").hide();
+
+    });
+
+    $("#cropTypeDropdown").change(function () {
+        var selectedCropType = $(this).val();
+
+        $.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            url: '@Url.Action("GetCropListbyType")',
+            data: { type: selectedCropType },
+            success:
+                function (response) {
+                    console.log(response.data);
+                    $("#cropDropdown").html("");
+
+                    $("#cropDropdown").append("<option value = >Select Crop</option>");
+
+                    response.data.forEach(function (t) {
+                        $("#cropDropdown").append('<option value = "' + t.cropName + '">' + t.cropName + '</option>');
+                        console.log(t);
+
+                    });
+
+                },
+
+            error:
+                function (response) {
+                    alert("Error: " + response);
+                }
+
+        });
+
+    });
+
+    var a, b, c, d;
+    $("#form").submit(function (e) {
+        e.preventDefault();
+    }).validate({
+        rules: {
+            cropDropdown: {
+                required: true
+            },
+            cropTypeDropdown: {
+                required: true
+            },
+            year: {
+                required: true
+            },
+            area: {
+                required: true
+            }
+        },
+        messages: {
+            cropDropdown: {
+                required: "Crop field is required"
+            }
+        },
+        submitHandler: function (form) {
+            a = parseInt($("#year").val());
+            b = $("#cropTypeDropdown").val();
+            c = $("#cropDropdown").val();
+            d = parseInt($("#area").val());
+
+            console.log(a + b + c + d);
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                url: '@Url.Action("CalculateInsurancebyType")',
+                data: { year: a, cropType: b, crop: c, area: d },
+                success:
+                    function (response) {
+
+                        $("#table").show();
+                        $("#submitButton").show();
+
+                        $("#hidden").append('<td><input type="text" id="insuranceCompany" name = "insuranceCompany" value = "' + response.data.insuranceCompany + '"readonly /></td>');
+
+                        console.log($("#insuranceCompany").val());
+
+
+                        $("#tableBody").append('<td class="col-sm-3">' + response.data.insuranceCompany + '</td>');
+                        $("#tableBody").append('<td class="col-sm-2"><input class="col-sm-12" style="border:none; cursor:default" type="text" id="sumInsured" name = "sumInsured" value = "' + response.data.sumInsured + '"readonly /></td>');
+                        $("#tableBody").append('<td class="col-sm-2"><input class="col-sm-12" style="border:none; cursor:default" type="text" id="sharePremium" name = "sharePremium" value = "' + response.data.sharePremium + '"readonly /></td>');
+                        $("#tableBody").append('<td class="col-sm-2"><input class="col-sm-12" style="border:none; cursor:default" type="text" id="premiumAmount" name = "premiumAmount" value = "' + response.data.premiumAmount + '"readonly /></td>');
+                        $("#tableBody").append('<td class="col-sm-1"><input class="col-sm-12" style="border:none; cursor:default" type="text" id="cropName" name = "cropName" value = "' + response.data.cropName + '"readonly /></td>');
+                        $("#tableBody").append('<td class="col-sm-1"><input class="col-sm-12" style="border:none; cursor:default" type="text" id="area" name = "area" value = "' + response.data.area + '"readonly /></td>');
+                        $("#tableBody").append('<td class="col-sm-1"><input class="col-sm-12" style="border:none; cursor:default" type="text" id="totalSumInsured" name = "totalSumInsured" value = "' + response.data.totalSumInsured + '"readonly /></td>');
+                    },
+
+                error:
+                    function (response) {
+                        alert("Error: " + response);
+                    }
+            });
+            //submit via ajax
+            return false;  //This doesn't prevent the form from submitting.
+        }
+    });
+
+    var year, ct, crop, ic, sum, sp, pa, area, tsi;
+    $("#submitButton").click(function (form, e) {
+
+        year = parseInt($("#year").val());
+        ct = $("#cropTypeDropdown").val();
+        crop = $("#cropDropdown").val();
+        ic = ($("#insuranceCompany").val());
+        sum = parseInt($("#sumInsured").val());
+        sp = parseFloat($("#sharePremium").val());
+        pa = parseFloat($("#premiumAmount").val());
+        area = parseInt($("#area").val());
+        tsi = parseInt($("#totalSumInsured").val());
+
+        $.ajax({
+            type: 'POST',
+            dataType: 'Json',
+            url: '@Url.Action("ApplyPolicy")',
+            data: { year: year, cropTypeDropdown: ct, cropDropdown: crop, insuranceCompany: ic, sumInsured: sum, sharePremium: sp, premiumAmount: pa, area: area, totalSumInsured: tsi },
+            success:
+                function (response) {
+                    window.location.href = "/Farmer/Insurance";
+
+                },
+
+            error:
+                function (response) {
+                    alert("Error: " + response);
+                }
+        });
+    });
+
+
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

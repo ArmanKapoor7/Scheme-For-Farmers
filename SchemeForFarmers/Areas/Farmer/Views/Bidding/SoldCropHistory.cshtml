@@ -1,0 +1,76 @@
+﻿@model IEnumerable<SchemeForFarmers.Areas.Farmer.Models.CropAuctionDetail>
+
+@{
+    ViewData["Title"] = "SoldCropHistory";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">Your Sold Crop Details</h4>
+                @{
+                    if (ViewBag.record != null)
+                    {
+                        <partial name="NoRecord"></partial>
+                    }
+                    else
+                    {
+                        <table class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>
+                                        <label>Sold Date</label>
+                                    </th>
+                                    <th>
+                                        <label>Crop</label>
+                                    </th>
+                                    <th>
+                                        <label>Quantity(in Kgs.)</label>
+                                    </th>
+                                    <th>
+                                        <label>MSP(per Quintal)</label>
+                                    </th>
+                                    <th>
+                                        <label>Sold Price(in Rs.)</label>
+                                    </th>
+                                    <th>
+                                        <label>Total Price(in Rs.)</label>
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoldDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CropName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Quantity)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Msp)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoldPrice)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TotalPrice)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

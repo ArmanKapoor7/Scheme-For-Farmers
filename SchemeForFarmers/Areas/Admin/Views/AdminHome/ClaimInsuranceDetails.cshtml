@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SchemeForFarmers.Areas.Farmer.Models.ClaimInsurance>
+
+@{
+    ViewData["Title"] = "ClaimInsuranceDetails";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">Claim Insurance Details</h4>
+
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ClaimId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.InsuranceId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.InsuranceCompany)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.TotalSumInsured)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FarmerName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CauseOfLoss)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DateOfLoss)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IsApproved)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ClaimId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.InsuranceId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.InsuranceCompany)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TotalSumInsured)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FarmerName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CauseOfLoss)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateOfLoss)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IsApproved)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

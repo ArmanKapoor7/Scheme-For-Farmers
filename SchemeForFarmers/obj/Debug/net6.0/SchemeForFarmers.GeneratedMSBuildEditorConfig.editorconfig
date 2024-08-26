@@ -1,0 +1,207 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SchemeForFarmers
+build_property.RootNamespace = SchemeForFarmers
+build_property.ProjectDir = C:\Users\HP\Desktop\Scheme For Farmers\SchemeForFarmers\SchemeForFarmers\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\HP\Desktop\Scheme For Farmers\SchemeForFarmers\SchemeForFarmers
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/AuctionRoom.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXEF1Y3Rpb25Sb29tLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/BidderDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXEJpZGRlckRldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/BidDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXEJpZERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/ClaimInsuranceDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXENsYWltSW5zdXJhbmNlRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/ClaimInsuranceValidation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXENsYWltSW5zdXJhbmNlVmFsaWRhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/CropsAuctionValidation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXENyb3BzQXVjdGlvblZhbGlkYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/CropsBidsDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXENyb3BzQmlkc0RldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/CropsDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXENyb3BzRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/FarmerDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXEZhcm1lckRldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/InsuranceDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXEluc3VyYW5jZURldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/InsuranceValidation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXEluc3VyYW5jZVZhbGlkYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/AdminHome/UserValidation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5Ib21lXFVzZXJWYWxpZGF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/Shared/NoRecord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXE5vUmVjb3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Bidder/Views/BidderHome/BidOnCrop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmlkZGVyXFZpZXdzXEJpZGRlckhvbWVcQmlkT25Dcm9wLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Bidder/Views/BidderHome/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmlkZGVyXFZpZXdzXEJpZGRlckhvbWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Bidder/Views/Shared/NoRecord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmlkZGVyXFZpZXdzXFNoYXJlZFxOb1JlY29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Bidder/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmlkZGVyXFZpZXdzXFNoYXJlZFxfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Bidder/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmlkZGVyXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Bidder/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmlkZGVyXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/Bidding/CropMarketplace.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXEJpZGRpbmdcQ3JvcE1hcmtldHBsYWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/Bidding/CropSellRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXEJpZGRpbmdcQ3JvcFNlbGxSZXF1ZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/Bidding/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXEJpZGRpbmdcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/Bidding/Marketplace.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXEJpZGRpbmdcTWFya2V0cGxhY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/Bidding/SoldCropHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXEJpZGRpbmdcU29sZENyb3BIaXN0b3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/Insurance/ApplyPolicy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXEluc3VyYW5jZVxBcHBseVBvbGljeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/Insurance/ClaimInsurance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXEluc3VyYW5jZVxDbGFpbUluc3VyYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/Insurance/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXEluc3VyYW5jZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/Shared/NoRecord.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXFNoYXJlZFxOb1JlY29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXFNoYXJlZFxfVmFsaWRhdGlvblNjcmlwdHNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Views/Home/BidderRegistration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCaWRkZXJSZWdpc3RyYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Views/Home/FarmerRegistration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGYXJtZXJSZWdpc3RyYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Views/Home/ForgotPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Views/Home/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Views/Shared/BackgroundPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEJhY2tncm91bmRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Admin/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-qw4fvdoa0w
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Bidder/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQmlkZGVyXFZpZXdzXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-6cx2yovoty
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Areas/Farmer/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRmFybWVyXFZpZXdzXFNoYXJlZFxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-62dtuq29rg
+
+[C:/Users/HP/Desktop/Scheme For Farmers/SchemeForFarmers/SchemeForFarmers/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-xeaup88f5j

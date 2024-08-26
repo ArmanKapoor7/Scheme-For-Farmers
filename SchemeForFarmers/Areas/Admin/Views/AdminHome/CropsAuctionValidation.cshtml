@@ -1,0 +1,116 @@
+﻿@model IEnumerable<SchemeForFarmers.Areas.Farmer.Models.CropAuctionDetail>
+
+@{
+    ViewData["Title"] = "CropsAuctionValidation";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">Crops Auction Validation</h4>
+                @{
+                    if (ViewBag.record != null)
+                    {
+                        <partial name="NoRecord"></partial>
+                    }
+                    else
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.FarmerId)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CropType)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CropName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Quantity)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SoilPhCertificate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Msp)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.BasePrice)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SoldDate)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.SoldPrice)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.TotalPrice)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IsApproved)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.IsSold)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FarmerId)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CropType)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CropName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Quantity)
+                                        </td>
+                                        <td>
+                                            <a href="~/PDF/@Html.DisplayFor(modelItem => item.SoilPhCertificate)">Soil Ph Certificate</a>
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Msp)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.BasePrice)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoldDate)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.SoldPrice)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.TotalPrice)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.IsApproved)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.IsSold)
+                                        </td>
+                                        <td>
+                                            <a type="submit" class="btn btn-outline-primary" asp-action="ApproveUser" asp-route-id="@item.CropId">Approve</a> |
+                                            <a type="submit" class="btn btn-outline-primary" asp-action="RejectUser" asp-route-id="@item.CropId">Reject</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

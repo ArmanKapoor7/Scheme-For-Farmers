@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SchemeForFarmers.Areas.Bidder.Models.CropBidDetail>
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">Bid Details</h4>
+
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CropId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.BidderId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Bid)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CropId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BidderId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Bid)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

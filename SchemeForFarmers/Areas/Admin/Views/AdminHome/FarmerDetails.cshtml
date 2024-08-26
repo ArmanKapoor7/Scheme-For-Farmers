@@ -1,0 +1,103 @@
+﻿@model IEnumerable<SchemeForFarmers.Areas.Farmer.Models.FarmerDetail>
+
+@{
+    ViewData["Title"] = "FarmerDetails";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">Farmer Details</h4>
+                <table class="table table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FarmerId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FContact)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FAddress)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FLandArea)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FLandAddress)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FAccountNo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FIfscCode)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FAadhar)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FPan)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FCertificate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IsVerified)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FarmerId)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FContact)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FAddress)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FLandArea)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FLandAddress)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FAccountNo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FIfscCode)
+                                </td>
+                                <td>
+                                    <a href="~/PDF/@Html.DisplayFor(modelItem => item.FAadhar)">AadharCard</a>
+                                </td>
+                                <td>
+                                    <a href="~/PDF/@Html.DisplayFor(modelItem => item.FPan)">PanCard</a>
+                                </td>
+                                <td>
+                                    <a href="~/PDF/@Html.DisplayFor(modelItem => item.FCertificate)">Certificate</a>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.IsVerified)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

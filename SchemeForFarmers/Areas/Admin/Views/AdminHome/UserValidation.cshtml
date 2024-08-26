@@ -1,0 +1,165 @@
+﻿@model SchemeForFarmers.Areas.Admin.Models.AdminViewModel
+
+@{
+    ViewData["Title"] = "UserValidation";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">User Validation</h4>
+                <div>
+                    <h1>New Farmers</h1>
+                    @{
+                        if (ViewBag.Frecord != null)
+                        {
+                            <partial name="NoRecord"></partial>
+                        }
+                        else
+                        {
+                            <table class="table table-striped">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Farmer Id</th>
+                                        <th>Farmer Name</th>
+                                        <th>Farmer Contact</th>
+                                        <th>Farmer Address</th>
+                                        <th>Land Area</th>
+                                        <th>Land Address</th>
+                                        <th>Account No</th>
+                                        <th>IFSC Code</th>
+                                        <th>Aadhar Card</th>
+                                        <th>Pan Card</th>
+                                        <th>Certificate</th>
+                                        <th>Is Verified</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Farmers)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FarmerId)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FContact)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FAddress)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FLandArea)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FLandAddress)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FAccountNo)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FIfscCode)
+                                            </td>
+                                            <td>
+                                                <a href="~/PDF/@Html.DisplayFor(modelItem => item.FAadhar)">AadharCard</a>
+                                            </td>
+                                            <td>
+                                                <a href="~/PDF/@Html.DisplayFor(modelItem => item.FPan)">PanCard</a>
+                                            </td>
+                                            <td>
+                                                <a href="~/PDF/@Html.DisplayFor(modelItem => item.FCertificate)">Certificate</a>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IsVerified)
+                                            </td>
+                                            <td>
+                                                <a type="submit" class="btn btn-outline-primary" asp-action="ApproveUser" asp-route-id="@item.FarmerId">Approve</a> |
+                                                <a type="submit" class="btn btn-outline-primary" asp-action="RejectUser" asp-route-id="@item.FarmerId">Reject</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    }
+                </div>
+                <div>
+                    <h1>New Bidders</h1>
+                    @{
+                        if (ViewBag.Brecord != null)
+                        {
+                            <partial name="NoRecord"></partial>
+                        }
+                        else
+                        {
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Bidder Id</th>
+                                        <th>Bidder Name</th>
+                                        <th>Bidder Contact</th>
+                                        <th>Bidder Address</th>
+                                        <th>Account No</th>
+                                        <th>IFSC Code</th>
+                                        <th>Aadhar Card</th>
+                                        <th>Pan Card</th>
+                                        <th>Trader's License</th>
+                                        <th>Is Verified</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Bidders)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BidderId)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BContact)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BAddress)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BAccountNo)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.BIfscCode)
+                                            </td>
+                                            <td>
+                                                <a href="~/PDF/@Html.DisplayFor(modelItem => item.BAadhar)">AadharCard</a>
+                                            </td>
+                                            <td>
+                                                <a href="~/PDF/@Html.DisplayFor(modelItem => item.BPan)">PanCard</a>
+                                            </td>
+                                            <td>
+                                                <a href="~/PDF/@Html.DisplayFor(modelItem => item.BLicense)">License</a>
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.IsVerified)
+                                            </td>
+                                            <td>
+                                                <a type="submit" class="btn btn-outline-primary" asp-action="ApproveUser" asp-route-id="@item.BidderId">Approve</a> |
+                                                <a type="submit" class="btn btn-outline-primary" asp-action="RejectUser" asp-route-id="@item.BidderId">Reject</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

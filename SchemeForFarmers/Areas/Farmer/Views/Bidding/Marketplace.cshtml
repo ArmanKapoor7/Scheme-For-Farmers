@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SchemeForFarmers.Areas.Farmer.Models.CropAuctionDetail>
+
+@{
+    ViewData["Title"] = "CropMarketplace";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">Marketplace</h4>
+                @{
+                    if (ViewBag.record != null)
+                    {
+                        <partial name="NoRecord"></partial>
+                    }
+                    else
+                    {
+                        <table class="table table-striped">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CropId)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CropType)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.CropName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Quantity)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CropId)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CropType)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.CropName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Quantity)
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-outline-primary" asp-action="CropMarketplace" asp-route-id="@item.CropId">Details</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>

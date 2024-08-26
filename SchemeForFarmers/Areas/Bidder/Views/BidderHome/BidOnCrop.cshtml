@@ -1,0 +1,110 @@
+﻿@model SchemeForFarmers.Areas.Bidder.Models.CropBidDetail
+
+@{
+    ViewData["Title"] = "BidOnCrop";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card col-sm-6 mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">New Bid</h4>
+                <div class="text-center" style="padding-top:10px">
+                    <dl class="row">
+                        <dt class="col-sm-6">
+                            <label>Crop Type</label>
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.CropType)
+                        </dd>
+                        <dt class="col-sm-6">
+                            <label>Crop Name</label>
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.CropName)
+                        </dd>
+                        <dt class="col-sm-6">
+                            <label>Quantity</label>
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.Quantity)
+                        </dd>
+                        <dt class="col-sm-6">
+                            <label>Base Price</label>
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.BasePrice)
+                        </dd>
+                        <dt class="col-sm-6">
+                            <label>Current Bid</label>
+                        </dt>
+                        <dd class="col-sm-6">
+                            @Html.DisplayFor(model => model.Bid)
+                        </dd>
+                    </dl>
+                </div>
+                <form asp-action="BidOnCrop" id="form">
+                    <div style="padding-bottom:10px">
+                        <input id="newBid" name="newBid" class="text-center" type="number" placeholder="Enter Your Bid" />
+                        <input name="cropId" value="@Model.CropId" hidden />
+                    </div>
+                    <input type="submit" class="btn btn-outline-info" value="Submit" id="sub" />
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    var selectedCropType
+
+    $("#form").submit(function (e) {
+        e.preventDefault();
+        var newBid = $("#newBid").val();
+        var id = @ViewBag.CropId;
+
+        console.log(id);
+
+        $.ajax({
+            type: 'POST',
+            url: '@Url.Action("CheckBid")',
+            data: { newBid: newBid, cropId: id },
+            success:
+                function (response) {
+                    console.log(response);
+                    if (response == 0) {
+                        $("#newBid").val('');
+                        alert("Bid should be multiple of 5");
+
+                    }
+                    else if (response == 1) {
+                        window.location.href = "/Bidder";
+
+                    }
+                    else if (response == 2) {
+                        $("#newBid").val('');
+                        alert("Bid should be greater than Current Bid or Base Price");
+
+                    }
+                },
+
+            error:
+                function (response) {
+                    alert("Error: " + response);
+                }
+
+        });
+    });
+</script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

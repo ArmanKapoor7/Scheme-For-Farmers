@@ -1,0 +1,67 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor contextAccessor
+<head>
+    <style>
+        .card {
+            transition: box-shadow 0.3s ease;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: scale(1.1);
+            }
+    </style>
+</head>
+@{
+    ViewData["Title"] = "Index";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+
+@{
+    if (contextAccessor.HttpContext.Session.GetString("newinsurance") != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="logoutalert">
+            <strong>New Insurance Request recorded.</strong>
+            <button type="button" id="btn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    if (contextAccessor.HttpContext.Session.GetString("newclaim") != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="logoutalert">
+            <strong>New Claim for Insurance recorded.</strong>
+            <button type="button" id="btn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+    if (contextAccessor.HttpContext.Session.GetString("claimed") != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert" id="logoutalert">
+            <strong>The Insurance is either already claimed or not Verified yet!</strong>
+            <button type="button" id="btn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+}
+<div class="container">
+    <div class="row">
+        <div class="card col-sm-3 mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <img src="~/Images/insurance.png" class="card-img-top">
+            <div class="card-body">
+                <h4 class="card-title">Apply Insurance</h4>
+                <p class="card-text">Protect your crops amd hardwork from natural calamities, pests & diseases.</p>
+                <a asp-action="ApplyPolicy" class="btn btn-primary stretched-link">Apply for Policy</a>
+            </div>
+        </div>
+
+        <div class="card col-sm-3 mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <img src="~/Images/claiminsurance.jpeg" class="card-img-top">
+            <div class="card-body">
+                <h4 class="card-title">Claim Insurance</h4>
+                <p class="card-text">In the event of unforeseen circumstances, avail your insurance to protect you and your crop from losses.</p>
+                <a asp-action="ClaimInsurance" class="btn btn-primary stretched-link">Claim Insurance</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

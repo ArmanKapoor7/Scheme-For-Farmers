@@ -1,0 +1,101 @@
+﻿@model SchemeForFarmers.Areas.Farmer.Models.FarmerDetail
+
+@{
+    ViewData["Title"] = "Farmer Registration";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="d-flex">
+    <div class="card col-sm-5 my-5 shadow p-3 mb-5 rounded">
+        <div class="card-body">
+            <h4 class="card-title">Farmer Registration</h4>
+            <form asp-action="Registration" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <h6 class="card-subtitle" style="margin-top:15px">Personal Details</h6>
+                <div class="form-group" style="margin-top:10px">
+                    <label asp-for="FName" class="control-label">Name</label>
+                    <input asp-for="FName" class="form-control" />
+                    <span asp-validation-for="FName" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-top:10px">
+                    <label asp-for="FContact" class="control-label">Contact</label>
+                    <input asp-for="FContact" class="form-control" />
+                    <span asp-validation-for="FContact" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-top:10px">
+                    <label asp-for="Email" class="control-label">Email</label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <h6 class="card-subtitle" style="margin-top:15px">Address Details</h6>
+                <div class="form-group" style="margin-top:10px">
+                    <label asp-for="FAddress" class="control-label">Address</label>
+                    <input asp-for="FAddress" class="form-control" />
+                    <span asp-validation-for="FAddress" class="text-danger"></span>
+                </div>
+                <h6 class="card-subtitle" style="margin-top:15px">Land Details</h6>
+                <div class="form-group" style="margin-top:10px">
+                    <label asp-for="FLandArea" class="control-label">Land Area(in Hectares)</label>
+                    <input asp-for="FLandArea" class="form-control" />
+                    <span asp-validation-for="FLandArea" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-top:10px">
+                    <label asp-for="FLandAddress" class="control-label">Land Address</label>
+                    <input asp-for="FLandAddress" class="form-control" />
+                    <span asp-validation-for="FLandAddress" class="text-danger"></span>
+                </div>
+                <h6 class="card-subtitle" style="margin-top:15px">Bank Details</h6>
+                <div class="form-group" style="margin-top:10px">
+                    <label asp-for="FAccountNo" class="control-label">Account No.</label>
+                    <input asp-for="FAccountNo" class="form-control" />
+                    <span asp-validation-for="FAccountNo" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-top:10px">
+                    <label asp-for="FIfscCode" class="control-label">IFSC Code</label>
+                    <input asp-for="FIfscCode" class="form-control" />
+                    <span asp-validation-for="FIfscCode" class="text-danger"></span>
+                </div>
+                <h6 class="card-subtitle" style="margin-top:15px">Documents Upload</h6>
+                <div class="form-group" style="margin-top:10px">
+                    <label class="control-label">Aadhar Card</label>
+                    <input type="file" accept="application/pdf" name="aadhar" class="form-control" />
+                    <span asp-validation-for="FAadhar" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-top:10px">
+                    <label class="control-label">Pan Card</label>
+                    <input type="file" accept="application/pdf" name="pan" class="form-control" />
+                    <span asp-validation-for="FPan" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-top:10px">
+                    <label asp-for="FCertificate" class="control-label">Certificate</label>
+                    <input type="file" accept="application/pdf" name="certificate" class="form-control" />
+                    <span asp-validation-for="FCertificate" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-top:25px">
+                    <label asp-for="Password" class="control-label">Password</label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="margin-top:10px">
+                    <label class="control-label">Confirm Password</label>
+                    <input name="ConfirmPassword" class="form-control" />
+                </div>
+                <div class="form-group" style="margin-top:10px">
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </div>
+            </form>
+
+            <div>
+                <a style="margin-top:10px" asp-action="LogIn" asp-controller="Home" asp-area="">Log In</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

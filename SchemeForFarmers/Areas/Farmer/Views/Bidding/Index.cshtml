@@ -1,0 +1,83 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor contextAccessor
+<head>
+    <style>
+        .card {
+            transition: box-shadow 0.3s ease;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+            .card:hover {
+                transform: scale(1.1);
+            }
+    </style>
+</head>
+@{
+    ViewData["Title"] = "Index";
+}
+
+@{
+    if (contextAccessor.HttpContext.Session.GetString("cropauction") != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="logoutalert">
+            <strong>Crop Sell Request recorded.</strong>
+            <button type="button" id="btn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="card col-sm-3 mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <img src="~/Images/cropauction.jpeg" class="card-img-top">
+            <div class="card-body">
+                <h4 class="card-title">Sell Your Crop</h4>
+                <p class="card-text">Place your crop on auction and get maximum profit.</p>
+                <a asp-action="CropSellRequest" class="btn btn-primary stretched-link">Place Sell Request</a>
+            </div>
+        </div>
+
+        <div class="card col-sm-3 mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <img src="~/Images/soldcrop.jpeg" class="card-img-top">
+            <div class="card-body">
+                <h4 class="card-title">Sold Crops History</h4>
+                <p class="card-text">Take a look at your previously sold crops in auction.</p>
+                <a asp-action="SoldCropHistory" class="btn btn-primary stretched-link">View Sold Crop History</a>
+            </div>
+        </div>
+        <div class="card col-sm-3 mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <img src="~/Images/marketplace.jpg" class="card-img-top">
+            <div class="card-body">
+                <h4 class="card-title">Marketplace</h4>
+                <p class="card-text">Check the live status of your current crops in auction.</p>
+                <a asp-action="Marketplace" class="btn btn-primary stretched-link">View Marketplace</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        history.pushState(null, null, window.location.href);
+        history.back();
+        window.onpopstate = () => history.forward();
+    });
+
+    $("#btn").click(function () {
+        $.ajax({
+            url: '@Url.Action("removeSession")',
+            success: function () {
+                console.log("success")
+            },
+            error: function () {
+                console.log("failure")
+            }
+            //Your code for AJAX Ends
+        });
+    });
+</script>
+

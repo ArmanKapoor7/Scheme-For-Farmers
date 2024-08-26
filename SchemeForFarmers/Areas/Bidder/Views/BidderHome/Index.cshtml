@@ -1,0 +1,82 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor contextAccessor
+
+@{
+    ViewData["Title"] = "Bidding";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card mx-auto my-5 shadow p-3 mb-5  rounded text-center">
+            <div class="card-body">
+                <h4 class="card-title">Auction Room</h4>
+                @{
+                    if (contextAccessor.HttpContext.Session.GetString("newbid") != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert" id="logoutalert">
+                            <strong>Your bid has been recorded!</strong>
+                            <button type="button" id="btn" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                    <table class="table table-striped">
+                        <thead class="table-dark" id="tb">
+                            <tr>
+                                <th>
+                                    <label>Crop Type</label>
+                                </th>
+                                <th>
+                                    <label>Crop</label>
+                                </th>
+                                <th>
+                                    <label>Quantity(in Kgs.)</label>
+                                </th>
+                                <th>
+                                    <label>Base Price</label>
+                                </th>
+                                <th>
+                                    <label>Current Bid</label>
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="table">
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        history.pushState(null, null, window.location.href);
+        history.back();
+        window.onpopstate = () => history.forward();
+    });
+
+    $("#btn").click(function () {
+        $.ajax({
+            url: '@Url.Action("removeSession")',
+            success: function () {
+                console.log("success")
+            },
+            error: function () {
+                console.log("failure")
+            }
+            //Your code for AJAX Ends
+        });
+    });
+</script>
+
+@section Scripts {
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/dashboard.js"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

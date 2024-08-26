@@ -1,0 +1,57 @@
+﻿@model SchemeForFarmers.Areas.Farmer.Models.MarketPlaceViewModel
+@{
+    ViewData["Title"] = "Marketplace";
+}
+<div>
+    <partial name="BackgroundPartial"></partial>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card col-sm-6 mx-auto my-5 shadow p-3 mb-5  rounded">
+            <div class="card-body">
+                <h4 class="card-title">Marketplace</h4>
+                <dl class="row justify-content-center">
+                    <dt class="col-sm-4">
+                        <label>Crop Type</label>
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.CropDetail.CropType)
+                    </dd>
+                    <dt class="col-sm-4">
+                        <label>Crop Name</label>
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.CropDetail.CropName)
+                    </dd>
+                    <dt class="col-sm-4">
+                        <label>Quantity</label>
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.CropDetail.Quantity)
+                    </dd>
+                    <dt class="col-sm-4">
+                        <label>Base Price</label>
+                    </dt>
+                    <dd class="col-sm-8">
+                        @Html.DisplayFor(model => model.CropDetail.BasePrice)
+                    </dd>
+                </dl>
+                <hr />
+                <div class="text-end">
+                    <label style="font-weight:bold">Current Bid</label>
+                    <p>@Model.CurrentBid.Bid</p>
+                </div>
+                <div>
+                    <hr />
+                    <label style="font-weight:bold">Bids</label>
+                    @{
+                        foreach (var item in Model.Bids)
+                        {
+                            <p>@item.Bid</p>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
